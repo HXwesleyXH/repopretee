@@ -51,11 +51,6 @@ jobs:
           run: |
             GOOS=windows GOARCH=amd64 go build ${{ vars.FILE_NAME }}.go
 
-      - name: Run sh
-        run: |
-          ls -la
-          pwd
-
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
