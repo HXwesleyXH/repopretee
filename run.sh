@@ -1,8 +1,8 @@
 #!/bin/bash
 
-chmod +x ./linux/hello-server
+chmod +x ./hello-server
 
-./linux/hello-server &
+./hello-server &
 
 sleep 5
 
