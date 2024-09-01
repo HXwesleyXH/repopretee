@@ -1,0 +1,52 @@
+name: CI/CD Impacta
+
+on:
+  push:
+    branches: ["dev"]
+  pull_request:
+      branches: [ "main" ]
+  workflow_dispatch:
+
+env:
+  FILE_NAME: ${{vars.FILE_NAME}}
+
+jobs:
+  download-and-run-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          run: |
+            echo ls -la
+            echo pwd
+            go build ${{ vars.FILENAME }}.go
+
+      - name: "Upload Artifact..."
+        uses: actions/upload-artifact@v4
+        with:
+          name: Linux
+          path: ./${{ env.FILE_NAME }}
+
+  download-only-windows:
+    runs-on: windows-latest
+    steps:
+      - name: "Step: Cloning repository..."
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          run: |
+            echo ls -la
+            echo pwd
+            GOOS=windows GOARCH=amd64 go build ${{ vars.FILE_NAME }}.go
+
+      - name: "Upload Artifact..."
+        uses: actions/upload-artifact@v4
+        with:
+          name: Windows
+          path: ./${{ env.FILE_NAME }}.exe
