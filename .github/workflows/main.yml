@@ -22,7 +22,7 @@ jobs:
         with:
           run: |
             echo "Building... GO!"
-            go build ${{ vars.FILENAME }}.go
+            go build -o ${{ vars.FILENAME }}.go
 
 
       - name: Run sh
