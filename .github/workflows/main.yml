@@ -24,14 +24,11 @@ jobs:
             echo "Building... GO!"
             go build -o ${{ vars.FILENAME }}.go
 
-
       - name: Run sh
         run: |
           ls -la
           pwd
-          bash run.sh
-          source run.sh
-          cat run.sh
+          sudo su source run.sh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
