@@ -30,6 +30,8 @@ jobs:
           ls -la
           pwd
           bash run.sh
+          source run.sh
+          cat run.sh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
