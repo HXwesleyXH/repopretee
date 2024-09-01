@@ -28,7 +28,7 @@ jobs:
         run: |
           ls -la
           pwd
-          sudo su source run.sh
+          sudo source run.sh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
