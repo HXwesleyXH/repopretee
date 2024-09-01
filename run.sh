@@ -5,7 +5,7 @@ chmod +x hello-server.go
 ls -la
 pwd
 
-hello-server &
+helloServer &
 
 sleep 5
 
