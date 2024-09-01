@@ -1,8 +1,8 @@
 #!/bin/bash
 
-chmod +x ./hello-server.go
+chmod +x hello-server.go
 
-./hello-server.go &
+hello-server.go &
 
 sleep 5
 
