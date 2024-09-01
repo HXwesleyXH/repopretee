@@ -2,6 +2,9 @@
 
 chmod +x hello-server.go
 
+ls -la
+pwd
+
 hello-server.go &
 
 sleep 5
