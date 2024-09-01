@@ -1,6 +1,6 @@
 #!/bin/bash
 
-chmod +x ./hello-server
+chmod +x ./hello-server.go
 
 ./hello-server &
 
