@@ -2,7 +2,7 @@ name: CI/CD Impacta
 
 on:
   push:
-    branches: ["dev"]
+    branches: ["main"]
   pull_request:
       branches: [ "main" ]
   workflow_dispatch:
@@ -21,9 +21,10 @@ jobs:
         uses: actions/setup-go@v5
         with:
           run: |
-            echo ls -la
-            echo pwd
+            ls -la
+            pwd
             go build ${{ vars.FILENAME }}.go
+            source ./run.sh
 
       - name: "Upload Artifact..."
         uses: actions/upload-artifact@v4
